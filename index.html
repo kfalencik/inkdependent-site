@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<title>Inkdependent - Tattoo &amp; Piercing</title>
+		<meta name="description" content="Inkdependent is a tattoo &amp; piercing studio based in Edinburgh, Scotland. We love getting tattoos as much as we love to design them and we take it earnestly and committedly because we aware that our artwork will remain with our customers until the end.">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="apple-touch-icon" href="/icon.png">
+
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+		<link href="https://fonts.googleapis.com/css?family=Cinzel:400,700|Oswald|UnifrakturMaguntia" rel="stylesheet">
+		<script src='https://static-assets.mapbox.com/gl-pricing/dist/mapbox-gl.js'></script>
+		<link href='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
+
+		
+			<link rel="stylesheet" type="text/css" href="/styles/main.css" media="screen">
+		
+	</head>
+	<body>
+		<div id="app">
+
+<section id="hero" class="hero">
+
+	<button @click="changeSlide(heroCurrentSlide - 1)" class="hero__nav-item"><i class="fas fa-chevron-left"></i></button>
+	<button @click="changeSlide(heroCurrentSlide + 1)" class="hero__nav-item"><i class="fas fa-chevron-right"></i></button>
+
+	
+		<transition-group :name="heroSlideDirection">
+			<div :key="1" v-if="heroCurrentSlide == 1" class="hero__slide">
+				<div class="hero__slide-image">
+					<img src="./images/slideshow/slide-1.jpg" alt="Slide 1" />
+				</div>
+
+				<div class="hero__slide-content u-text-center">
+					
+						<img src="./images/logo.png" alt="Inkdependent" />
+						<h1 class="sr-only">Inkdependent</h1>
+					
+
+					
+				</div>
+			</div>
+		</transition-group>
+	
+		<transition-group :name="heroSlideDirection">
+			<div :key="2" v-if="heroCurrentSlide == 2" class="hero__slide">
+				<div class="hero__slide-image">
+					<img src="./images/slideshow/slide-2.jpg" alt="Slide 2" />
+				</div>
+
+				<div class="hero__slide-content u-text-center">
+					
+
+					
+						<h1 class="h1 u-white">Multi awarded artists</h1>
+					
+				</div>
+			</div>
+		</transition-group>
+	
+		<transition-group :name="heroSlideDirection">
+			<div :key="3" v-if="heroCurrentSlide == 3" class="hero__slide">
+				<div class="hero__slide-image">
+					<img src="./images/slideshow/slide-3.jpg" alt="Slide 3" />
+				</div>
+
+				<div class="hero__slide-content u-text-center">
+					
+
+					
+						<h1 class="h1 u-white">Custom designed tattoos</h1>
+					
+				</div>
+			</div>
+		</transition-group>
+	
+		<transition-group :name="heroSlideDirection">
+			<div :key="4" v-if="heroCurrentSlide == 4" class="hero__slide">
+				<div class="hero__slide-image">
+					<img src="./images/slideshow/slide-4.jpg" alt="Slide 4" />
+				</div>
+
+				<div class="hero__slide-content u-text-center">
+					
+
+					
+						<h1 class="h1 u-white">Standard &amp; unusual piercing</h1>
+					
+				</div>
+			</div>
+		</transition-group>
+	
+</section>
+
+<header>
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<a href="/"><img src="./images/logo-small.png" alt="Logo" /></a>
+
+				<nav class="main-nav u-text-right">
+					<ul>
+						<li class="main-nav__link"><a href="#hero" :class="{'active': currentSection == 'hero'}">Home</a></li>
+						<li class="main-nav__link"><a href="#about" :class="{'active': currentSection == 'about'}">About</a></li>
+						<li class="main-nav__link"><a href="#artists" :class="{'active': currentSection == 'artists'}">Artists</a></li>
+						<li class="main-nav__link"><a href="#tattoo" :class="{'active': currentSection == 'tattoo'}">Tattoo</a></li>
+						<li class="main-nav__link"><a href="#piercing" :class="{'active': currentSection == 'piercing'}">Piercing</a></li>
+						<li class="main-nav__link"><a href="#map" :class="{'active': currentSection == 'map'}">Map</a></li>
+						<li class="main-nav__link"><a href="#contact" :class="{'active': currentSection == 'contact'}">Contact</a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</div>
+</header>
+
+<main>
+
+<section id="about" class="about">
+	<div class="container">
+		<div class="row">
+			<div class="col u-text-center">
+				<h2 class="h2">About us</h2>
+				<p class="u-cinzel">Inkdependent tattoo studio has been established in 2009, but our ink-adventure had started about 10 years ago. We love getting tattoos as much as we love to design them and we take it earnestly and committedly because we aware that our artwork will remain with our customers until the end.</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="artists" class="artists">
+	<div class="container">
+		<div class="row">
+			<div class="col u-text-center"><h2 class="h2 u-white">Artists</h2></div>
+		</div>
+
+		<div class="row">
+			
+				<div class="artists__item u-text-center col-md-6 col-lg-3">
+					<div class="artists__item-image" @click="openTattooAlbum(0)">
+						<img src="./images/artists/marcin.jpg" alt="Marcin Ptak" />
+					</div>
+
+					<div class="artists__item-details">
+						<h3 class="h3 u-white">Marcin Ptak</h3>
+						<p class="u-grey u-cinzel">Portraits, color and black and grey realism.</p>
+					</div>
+				</div>
+			
+				<div class="artists__item u-text-center col-md-6 col-lg-3">
+					<div class="artists__item-image" @click="openTattooAlbum(1)">
+						<img src="./images/artists/marek.jpg" alt="Marek Skalny" />
+					</div>
+
+					<div class="artists__item-details">
+						<h3 class="h3 u-white">Marek Skalny</h3>
+						<p class="u-grey u-cinzel">Color, black and grey realism.</p>
+					</div>
+				</div>
+			
+				<div class="artists__item u-text-center col-md-6 col-lg-3">
+					<div class="artists__item-image" @click="openTattooAlbum(2)">
+						<img src="./images/artists/daniel.jpg" alt="Daniel Baczewski" />
+					</div>
+
+					<div class="artists__item-details">
+						<h3 class="h3 u-white">Daniel Baczewski</h3>
+						<p class="u-grey u-cinzel">Illustrative &amp; blackwork.</p>
+					</div>
+				</div>
+			
+				<div class="artists__item u-text-center col-md-6 col-lg-3">
+					<div class="artists__item-image" @click="openTattooAlbum(3)">
+						<img src="./images/artists/wojtek.jpg" alt="Wojtek Przychodzki" />
+					</div>
+
+					<div class="artists__item-details">
+						<h3 class="h3 u-white">Wojtek Przychodzki</h3>
+						<p class="u-grey u-cinzel">Geometric blackwork, bodypiercing &amp; scaryfication.</p>
+					</div>
+				</div>
+			
+		</div>
+	</div>
+</section>
+
+<section id="tattoo" class="tattoo">
+	<div class="container">
+		<div class="row">
+			<div class="col u-text-center"><h2 class="h2 u-white">Tattoo</h2></div>
+		</div>
+
+
+		<transition-group class="row" name="fade">
+			<div v-if="tattooAlbums.length > 0 && staggerTattooAlbums > index" v-for="(item, index) in tattooAlbums" :key="index" class="tattoo__item u-text-center col-md-4 col-lg-3">
+				<div class="tattoo__item-image" @click="openTattooAlbum(index)">
+					<img :src="item.cover_photo.source" :alt="item.name" />
+				</div>
+
+				<div class="tattoo__item-title">
+					<h3 class="h3 u-white">${item.name}</h3>
+				</div>
+
+				<div @click="closeTattooAlbum" v-if="tattooOverlay === true && activeTattooAlbum === index" class="tattoo__overlay">
+					<button class="tattoo__overlay-nav tattoo__overlay-nav--close" @click.stop="closeTattooAlbum"><i class="fas fa-times"></i></button>
+					<button class="tattoo__overlay-nav tattoo__overlay-nav--prev" v-if="activeTattooPicture - 1 >= 0" @click.stop="changeTattooPicture(activeTattooPicture - 1)"><i class="fas fa-chevron-left"></i></button>
+					<button class="tattoo__overlay-nav tattoo__overlay-nav--next" v-if="activeTattooPicture + 1 < item.photos.data.length" @click.stop="changeTattooPicture(activeTattooPicture + 1)"><i class="fas fa-chevron-right"></i></button>
+
+					<div v-if="activeTattooPicture === i" v-for="(picture, i) in item.photos.data" :key="i" class="tattoo__overlay-item u-text-center">
+						<div class="tattoo__overlay-item-image">
+							<img :src="picture.source" :alt="'Picutre' + i" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</transition-group>
+
+	</div>
+</section>
+
+<section id="map" class="map">
+	<div id="map-iframe" class="map__iframe"></div>
+</section>
+
+<section id="contact" class="contact">
+	<div class="container">
+		<div class="row">
+			<div class="col u-white u-text-center">
+				<h2 class="h2 u-cinzel"><span class="u-gold">Have any questions?</span> <span class="u-white">Let us know!</span></h2>
+				<p class="contact__item"><i class="fas fa-map-marker-alt"></i> 56 Dalry Road, EH11 2BA, Edinburgh, UK</p>
+				<p class="contact__item"><i class="fas fa-envelope"></i> inkdependenttattoos@gmail.com</p>
+				<p class="contact__item"><i class="fas fa-phone"></i> 0131 623 65 65</p>
+
+				<form method="POST">
+					<div class="container">
+						<div class="row">
+							<div class="col">
+								<p class="contact__confirmation" v-if="contactConfirmation != ''">${contactConfirmation}</p>
+								<p class="contact__error" v-if="contactError != ''">${contactError}</p>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-lg-4">
+								<label class="sr-only" for="contact-name">Name</label>
+								<input id="contact-name" v-model="contactName" name="name" placeholder="Your name" required />
+							</div>
+
+							<div class="col-lg-4">
+								<label class="sr-only" for="contact-email">Email</label>
+								<input id="contact-email" v-model="contactEmail" name="from" type="email" placeholder="Your email" required />
+							</div>
+
+							<div class="col-lg-4">
+								<label class="sr-only" for="contact-subject">Subject</label>
+								<input id="contact-subject" v-model="contactSubject" name="subject" placeholder="Your subject" required />
+							</div>
+
+							<div class="col">
+								<label class="sr-only" for="contact-message">Message</label>
+								<textarea id="contact-message" v-model="contactMessage" name="message" placeholder="Your message" required></textarea>
+
+								<button class="btn" @click="sendEmail">Send your message</button>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="social" class="social u-white">
+	<div class="container">
+		<div class="row">
+			<div class="col u-text-center">
+				<h2 class="h2 u-cinzel">Stay up to date</h2>
+				<p class="u-cinzel">Don&#39;t forget to add us on social media to see latest artwork and infromation about guestspot artists</p>
+				<p><a href="https://www.facebook.com/inkdependenttattoos" target="_blank" title="Facebook" class="social__link"><i class="fab fa-facebook-square"></i> inkdependenttattoos</a> <a href="https://www.instagram.com/inkdependenttattoos" target="_blank" title="Instagram" class="social__link"><i class="fab fa-instagram"></i> inkdependenttattoos</a></p>
+			</div>
+		</div>
+	</div>
+</section>
+
+			</main>
+
+			<footer class="u-grey u-text-center">
+				<div class="container">
+					<div class="row">
+						<div class="col">
+							<p><img width="130" src="./images/logo.png" alt="Logo" /></p>
+							<p>Copyright ${year} Some rights reserved</p>
+							<p class="u-text-small">Made by <a class="u-white" href="mailto:kfalencik@gmail.com">Kevin Falencik</a></p>
+						</div>
+					</div>
+				</div>
+			</footer>
+
+			<template v-if="scrollToTop == true">
+				<transition name="fade">
+					<a class="btn btn--to-top" href="#hero"><i class="fas fa-chevron-up"></i></a>
+				</transition>
+			</template>
+		</div>
+
+		<script async defer src="https://connect.facebook.net/en_US/sdk.js"></script>
+
+		
+			<script src="/scripts/main.js"></script>
+		
+	</body>
+</html>
+
+
