@@ -1697,7 +1697,7 @@ header {
 
 .about {
   background: #dadada;
-  background: url(/images/graphics/about-us.jpg) no-repeat center/cover #f1f1f1;
+  background: url(../images/graphics/about-us.jpg) no-repeat center/cover #f1f1f1;
   position: relative; }
   .about::before {
     content: '';
@@ -1849,7 +1849,7 @@ header {
 
 .social {
   background: #000;
-  background: url(/images/graphics/social.jpg) no-repeat center/cover #000;
+  background: url(../images/graphics/social.jpg) no-repeat center/cover #000;
   position: relative; }
   .social::before {
     content: '';
