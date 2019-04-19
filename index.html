@@ -6,15 +6,15 @@
 		<title>Inkdependent - Tattoo &amp; Piercing</title>
 		<meta name="description" content="Inkdependent is a tattoo &amp; piercing studio based in Edinburgh, Scotland. We love getting tattoos as much as we love to design them and we take it earnestly and committedly because we aware that our artwork will remain with our customers until the end.">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="apple-touch-icon" href="./icon.png">
-		<link rel="icon" href="./favicon.ico" type="image/x-icon"/>
+		<link rel="apple-touch-icon" href="/icon.png">
+
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 		<link href="https://fonts.googleapis.com/css?family=Cinzel:400,700|Oswald|UnifrakturMaguntia" rel="stylesheet">
 		<script src='https://static-assets.mapbox.com/gl-pricing/dist/mapbox-gl.js'></script>
 		<link href='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
 
 		
-			<link rel="stylesheet" type="text/css" href="./styles/main.css" media="screen">
+			<link rel="stylesheet" type="text/css" href="/styles/main.min.css" media="screen">
 		
 	</head>
 	<body>
@@ -100,12 +100,11 @@
 				<a href="/"><img src="./images/logo-small.png" alt="Logo" /></a>
 
 				<nav class="main-nav u-text-right">
-					<ul>
+					<button class="main-nav__toggler" @click="toggleMenu"><i class="fas fa-bars"></i></button>
+					<ul @click="toggleMenu" :class="{'mobile-on': menuStatus}">
 						<li class="main-nav__link"><a href="#hero" :class="{'active': currentSection == 'hero'}">Home</a></li>
 						<li class="main-nav__link"><a href="#about" :class="{'active': currentSection == 'about'}">About</a></li>
 						<li class="main-nav__link"><a href="#artists" :class="{'active': currentSection == 'artists'}">Artists</a></li>
-						<li class="main-nav__link"><a href="#tattoo" :class="{'active': currentSection == 'tattoo'}">Tattoo</a></li>
-						<li class="main-nav__link"><a href="#piercing" :class="{'active': currentSection == 'piercing'}">Piercing</a></li>
 						<li class="main-nav__link"><a href="#map" :class="{'active': currentSection == 'map'}">Map</a></li>
 						<li class="main-nav__link"><a href="#contact" :class="{'active': currentSection == 'contact'}">Contact</a></li>
 					</ul>
@@ -128,66 +127,10 @@
 	</div>
 </section>
 
-<section id="artists" class="artists">
+<section id="artists" class="tattoo">
 	<div class="container">
 		<div class="row">
 			<div class="col u-text-center"><h2 class="h2 u-white">Artists</h2></div>
-		</div>
-
-		<div class="row">
-			
-				<div class="artists__item u-text-center col-md-6 col-lg-3">
-					<div class="artists__item-image" @click="openTattooAlbum(0)">
-						<img src="./images/artists/marcin.jpg" alt="Marcin Ptak" />
-					</div>
-
-					<div class="artists__item-details">
-						<h3 class="h3 u-white">Marcin Ptak</h3>
-						<p class="u-grey u-cinzel">Portraits, color and black and grey realism.</p>
-					</div>
-				</div>
-			
-				<div class="artists__item u-text-center col-md-6 col-lg-3">
-					<div class="artists__item-image" @click="openTattooAlbum(1)">
-						<img src="./images/artists/marek.jpg" alt="Marek Skalny" />
-					</div>
-
-					<div class="artists__item-details">
-						<h3 class="h3 u-white">Marek Skalny</h3>
-						<p class="u-grey u-cinzel">Color, black and grey realism.</p>
-					</div>
-				</div>
-			
-				<div class="artists__item u-text-center col-md-6 col-lg-3">
-					<div class="artists__item-image" @click="openTattooAlbum(2)">
-						<img src="./images/artists/daniel.jpg" alt="Daniel Baczewski" />
-					</div>
-
-					<div class="artists__item-details">
-						<h3 class="h3 u-white">Daniel Baczewski</h3>
-						<p class="u-grey u-cinzel">Illustrative &amp; blackwork.</p>
-					</div>
-				</div>
-			
-				<div class="artists__item u-text-center col-md-6 col-lg-3">
-					<div class="artists__item-image" @click="openTattooAlbum(3)">
-						<img src="./images/artists/wojtek.jpg" alt="Wojtek Przychodzki" />
-					</div>
-
-					<div class="artists__item-details">
-						<h3 class="h3 u-white">Wojtek Przychodzki</h3>
-						<p class="u-grey u-cinzel">Geometric blackwork, bodypiercing &amp; scaryfication.</p>
-					</div>
-				</div>
-			
-		</div>
-	</div>
-</section>
-
-<section id="tattoo" class="tattoo">
-	<div class="container">
-		<div class="row">
-			<div class="col u-text-center"><h2 class="h2 u-white">Tattoo</h2></div>
 		</div>
 
 
@@ -199,6 +142,7 @@
 
 				<div class="tattoo__item-title">
 					<h3 class="h3 u-white">${item.name}</h3>
+					<p><a :href="item.instagram" target="_blank" title="Instagram"><i class="fab fa-instagram"></i> Instagram</a></p>
 				</div>
 
 				<div @click="closeTattooAlbum" v-if="tattooOverlay === true && activeTattooAlbum === index" class="tattoo__overlay">
@@ -276,7 +220,10 @@
 			<div class="col u-text-center">
 				<h2 class="h2 u-cinzel">Stay up to date</h2>
 				<p class="u-cinzel">Don&#39;t forget to add us on social media to see latest artwork and infromation about guestspot artists</p>
-				<p><a href="https://www.facebook.com/inkdependenttattoos" target="_blank" title="Facebook" class="social__link"><i class="fab fa-facebook-square"></i> inkdependenttattoos</a> <a href="https://www.instagram.com/inkdependenttattoos" target="_blank" title="Instagram" class="social__link"><i class="fab fa-instagram"></i> inkdependenttattoos</a></p>
+				<p>
+					<a href="https://www.facebook.com/inkdependenttattoos" target="_blank" title="Facebook" class="social__link"><i class="fab fa-facebook-square"></i> inkdependenttattoos</a> 
+					<a href="https://www.instagram.com/inkdependenttattoos" target="_blank" title="Instagram" class="social__link"><i class="fab fa-instagram"></i> inkdependenttattoos</a>
+				</p>
 			</div>
 		</div>
 	</div>
@@ -306,7 +253,7 @@
 		<script async defer src="https://connect.facebook.net/en_US/sdk.js"></script>
 
 		
-			<script src="./scripts/main.js"></script>
+			<script src="/scripts/main.min.js"></script>
 		
 	</body>
 </html>
