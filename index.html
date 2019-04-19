@@ -6,7 +6,12 @@
 		<title>Inkdependent - Tattoo &amp; Piercing</title>
 		<meta name="description" content="Inkdependent is a tattoo &amp; piercing studio based in Edinburgh, Scotland. We love getting tattoos as much as we love to design them and we take it earnestly and committedly because we aware that our artwork will remain with our customers until the end.">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="apple-touch-icon" href="/icon.png">
+		<link rel="apple-touch-icon" href="icon.png">
+
+		<meta property="og:title" content="Inkdependent - Tattoo &amp; Piercing" />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://inkdependent.eu" />
+		<meta property="og:image" content="images/logo.png" />
 
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 		<link href="https://fonts.googleapis.com/css?family=Cinzel:400,700|Oswald|UnifrakturMaguntia" rel="stylesheet">
@@ -14,7 +19,7 @@
 		<link href='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
 
 		
-			<link rel="stylesheet" type="text/css" href="/styles/main.min.css" media="screen">
+			<link rel="stylesheet" type="text/css" href="styles/main.min.css" media="screen">
 		
 	</head>
 	<body>
@@ -102,11 +107,11 @@
 				<nav class="main-nav u-text-right">
 					<button class="main-nav__toggler" @click="toggleMenu"><i class="fas fa-bars"></i></button>
 					<ul @click="toggleMenu" :class="{'mobile-on': menuStatus}">
-						<li class="main-nav__link"><a href="#hero" :class="{'active': currentSection == 'hero'}">Home</a></li>
-						<li class="main-nav__link"><a href="#about" :class="{'active': currentSection == 'about'}">About</a></li>
-						<li class="main-nav__link"><a href="#artists" :class="{'active': currentSection == 'artists'}">Artists</a></li>
-						<li class="main-nav__link"><a href="#map" :class="{'active': currentSection == 'map'}">Map</a></li>
-						<li class="main-nav__link"><a href="#contact" :class="{'active': currentSection == 'contact'}">Contact</a></li>
+						<li class="main-nav__link"><a href="/#hero" :class="{'active': currentSection == 'hero'}">Home</a></li>
+						<li class="main-nav__link"><a href="/#about" :class="{'active': currentSection == 'about'}">About</a></li>
+						<li class="main-nav__link"><a href="/#artists" :class="{'active': currentSection == 'artists'}">Artists</a></li>
+						<li class="main-nav__link"><a href="/#map" :class="{'active': currentSection == 'map'}">Map</a></li>
+						<li class="main-nav__link"><a href="/#contact" :class="{'active': currentSection == 'contact'}">Contact</a></li>
 					</ul>
 				</nav>
 			</div>
@@ -235,7 +240,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="col">
-							<p><img width="130" src="./images/logo.png" alt="Logo" /></p>
+							<p><img width="130" src="images/logo.png" alt="Logo" /></p>
 							<p>Copyright ${year} Some rights reserved</p>
 							<p class="u-text-small">Made by <a class="u-white" href="mailto:kfalencik@gmail.com">Kevin Falencik</a></p>
 						</div>
@@ -253,7 +258,7 @@
 		<script async defer src="https://connect.facebook.net/en_US/sdk.js"></script>
 
 		
-			<script src="/scripts/main.min.js"></script>
+			<script src="scripts/main.min.js"></script>
 		
 	</body>
 </html>
